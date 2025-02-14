@@ -25,7 +25,7 @@ function Home(){
                             Register
                         </button>
                     </Link>
-                    <Link to='/login'>
+                    <Link to='/signin'>
                         <button className='bg-green-500 text-white mx-3 py-2 px-4 rounded text-xl cursor-pointer'>
                             Login
                         </button>

@@ -22,10 +22,22 @@ export default function Signup(){
         })
     }
 
+    function resetForm(){
+        setSignupDetails({
+            email: '',
+            password: '',
+            username: ''
+        })
+    }
+
     async function onFormSubmit(e){
         e.preventDefault();
         const response = await dispatch(signup(singupDetails));
         console.log(response);
+        if(response?.payload?.data){
+            navigate('/signin');
+        }
+        resetForm();
     }
 
     return(

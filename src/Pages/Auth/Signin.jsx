@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom"
+import { signin } from "src/Redux/Slices/AuthSlice";
 
 export default function Signin(){
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [singinDetails, setSigninDetails] = useState({
         email: '',
@@ -17,9 +21,21 @@ export default function Signin(){
         })
     }
 
-    function onFormSubmit(e){
+    function resetForm(){
+        setSigninDetails({
+            email: '',
+            password: '',
+        })
+    }
+
+    async function onFormSubmit(e){
         e.preventDefault();
-        console.log(singinDetails)
+        console.log(singinDetails);
+        const response = await dispatch(signin(singinDetails));
+        if(response?.payload?.data){
+            navigate('/');
+        }
+        resetForm();
     }
     return(
         <div className="h-[100vh] flex flex-col items-center justify-center">
