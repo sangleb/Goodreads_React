@@ -1,7 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signup } from "src/Redux/Slices/AuthSlice";
 
 export default function Signup(){
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [singupDetails, setSignupDetails] = useState({
             email: '',
@@ -17,9 +22,10 @@ export default function Signup(){
         })
     }
 
-    function onFormSubmit(e){
+    async function onFormSubmit(e){
         e.preventDefault();
-        console.log(singupDetails)
+        const response = await dispatch(signup(singupDetails));
+        console.log(response);
     }
 
     return(

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Home(){
     return (
-        <div className='flex flex-col items-center justify-center gap-40 h-[100vh]'>
+        <div className='flex flex-col items-center justify-center gap-40 h-[100vh] bg-gray-100'>
             <div className='h-40 w-50'>
                 <img className='w-full h-full'
                     src={logo} 
@@ -20,12 +20,16 @@ function Home(){
                 </div>
 
                 <div>
-                    <button className='bg-blue-500 text-white py-2 px-4 rounded text-xl'>
-                        <Link to='/signup'>Register</Link>
-                    </button>
-                    <button className='bg-green-500 text-white mx-3 py-2 px-4 rounded text-xl'>
-                        <Link to='/login'>Login</Link>
-                    </button>
+                    <Link to='/signup'>
+                        <button className='bg-blue-500 text-white py-2 px-4 rounded text-xl cursor-pointer'>
+                            Register
+                        </button>
+                    </Link>
+                    <Link to='/login'>
+                        <button className='bg-green-500 text-white mx-3 py-2 px-4 rounded text-xl cursor-pointer'>
+                            Login
+                        </button>
+                    </Link>
 
                 </div>
             </div>
