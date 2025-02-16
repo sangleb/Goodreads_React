@@ -11,12 +11,12 @@ const initialState = {
 export const signup = createAsyncThunk('auth/signup', async (data) =>{
     try {
         const response = axiosInstance.post("signup", data);
+        console.log(response);
         toast.promise(response, {
             loading: 'Submitting form',
             success: 'Successfully signed up !',
             error: 'Something went wrong'
         })
-
         return await response;
     } catch (error) {
         if(error?.response?.data?.err){
@@ -46,7 +46,14 @@ export const signin = createAsyncThunk('auth/signin', async (data) =>{
 const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {},
+    reducers: {
+        logout: (state) => {
+            state.isLoggedIn = false;
+            state.username = '';
+            state.token = '';
+            localStorage.clear();
+        }
+    },
     extraReducers: (builder) =>{
         builder.addCase(signin.fulfilled, (state, action)=>{
             if(action?.payload?.data){
@@ -61,4 +68,5 @@ const authSlice = createSlice({
     }
 });
 
+export const { logout } = authSlice.actions;
 export default authSlice.reducer;

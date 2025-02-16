@@ -13,7 +13,7 @@ function Home(){
             </div >
             <div className='flex justify-around items-center gap-16'>
                 <div className='w-2/4 text-center font-semibold text-3xl basis-1/2'>
-                    <h1 className='text-5xl tracking-widest leading-normal'>
+                    <h1 className='text-5xl tracking-widest leading-normal text-black'>
                         BookShelf <br></br>
                         <span className='text-red-400'>Your Personal library and social network for bookworms</span>
                     </h1>
