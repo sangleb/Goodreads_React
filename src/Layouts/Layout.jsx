@@ -6,7 +6,7 @@ export default function Layout({children}){
     return(
         <>
             <Navbar />
-                <div className="flex h-[90vh] items-start justify-center ">
+                <div className="flex min-h-[90vh] items-start justify-center ">
                     <div className="w-9/12">
                         {children}
                     </div>

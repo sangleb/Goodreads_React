@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authSliceReducer from 'src/Redux/Slices/AuthSlice'
+import authSliceReducer from 'src/Redux/Slices/AuthSlice';
+import bookSliceReducer from 'src/Redux/Slices/BookSlice';
 
 const store = configureStore({
     reducer: {
-        auth: authSliceReducer
+        auth: authSliceReducer,
+        book: bookSliceReducer
     },
     devTools: true,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck: false})
